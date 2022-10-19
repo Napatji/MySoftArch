@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Lab The SOLID Principles">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lsp.zip!/" />
+      <root url="jar://$PROJECT_DIR$/book.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
