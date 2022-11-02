@@ -3,15 +3,18 @@ package creational;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-public class JSONBookMetadataFormatter implements BookMetadataFormatter {
-
+public class JSONBookMetadataExporter extends BookMetadataExporter implements Export{
     private JSONObject obj = new JSONObject();
 
+    protected JSONBookMetadataExporter() throws ParserConfigurationException,IOException {
+        reset();
+    }
+
     @Override
-    public BookMetadataFormatter reset() {
-        // Please implement this method. You may create additional methods as you see fit.
+    public JSONBookMetadataExporter reset() {
         int temp_book = 0;
         JSONObject temp_obj = new JSONObject();
         temp_obj.put("ISBN",Book.Metadata.ISBN.toString());
@@ -24,8 +27,7 @@ public class JSONBookMetadataFormatter implements BookMetadataFormatter {
     }
 
     @Override
-    public BookMetadataFormatter append(Book b) {
-        // Please implement this method. You may create additional methods as you see fit.
+    public JSONBookMetadataExporter append(Book b) {
         JSONObject temp_obj = new JSONObject();
         int temp_book = 0;
         temp_obj.put("ISBN",b.getISBN());
@@ -37,12 +39,17 @@ public class JSONBookMetadataFormatter implements BookMetadataFormatter {
         }
         temp_obj.put("Author",arrayObj);
         obj.put("Book" + temp_book++,temp_obj);
+
         return this;
     }
 
     @Override
     public String getMetadataString() {
-        // Please implement this method. You may create additional methods as you see fit.
         return obj.toJSONString();
+    }
+
+    @Override
+    public Export CreateExporter(){
+        return this;
     }
 }
