@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="behavioral">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/behavioral.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
