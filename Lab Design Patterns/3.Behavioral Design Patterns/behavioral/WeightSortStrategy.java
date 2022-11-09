@@ -1,9 +1,8 @@
 package edu.parinya.softarchdesign.behavioral2;
 
-import java.util.Comparator;
 import java.util.List;
 
-public class WeightStrategy implements SortStrategy {
+public class WeightSortStrategy implements SortStrategy {
     @Override
     public void customSort(List<Person> people) {
         // YOU ARE NOT ALLOWED TO MODIFY THE CODE ABOVE THIS COMMENT !!

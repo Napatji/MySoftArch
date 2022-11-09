@@ -42,7 +42,7 @@ public class Main {
         people.print(out);
         people.setSortStrategy(new HeightSortStrategy());
         people.print(out);
-        people.setSortStrategy(new WeightStrategy());
+        people.setSortStrategy(new WeightSortStrategy());
         people.print(out);
     }
 }

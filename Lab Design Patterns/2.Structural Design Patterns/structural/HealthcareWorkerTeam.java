@@ -1,34 +1,35 @@
 package edu.parinya.softarchdesign.structural;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class HealthcareWorkerTeam implements HealthcareServiceable{
 
-    private ArrayList<HealthcareServiceable> members = new ArrayList<HealthcareServiceable>();
-    private Double price = 0.00;
+    private Set<HealthcareServiceable> members = new HashSet<HealthcareServiceable>();
     public void addMember(HealthcareServiceable name){
         members.add(name);
-        price += name.getPrice();
     }
 
     public void removeMember(HealthcareServiceable name){
         if (members.isEmpty() == false){
-            members.remove(members.indexOf(name));
-            price -= name.getPrice();
+            members.remove(name);
         }
-    }
-
-    private void showService(HealthcareServiceable name){
-        name.service();
     }
 
     @Override
     public void service() {
-        for (int i = 0; i < members.size(); i++)showService(members.get(i));
+        for (HealthcareServiceable name : members){
+            name.service();
+        }
     }
 
     @Override
     public double getPrice() {
-        return this.price;
+        Double price = 0.00;
+        for (HealthcareServiceable name : members){
+            price += name.getPrice();
+        }
+        return price;
     }
 }
