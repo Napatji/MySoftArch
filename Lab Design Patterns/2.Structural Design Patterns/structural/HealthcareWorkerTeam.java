@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class HealthcareWorkerTeam implements HealthcareServiceable{
 
-    private ArrayList<Object> members = new ArrayList<Object>();
+    private ArrayList<HealthcareServiceable> members = new ArrayList<HealthcareServiceable>();
     private Double price = 0.00;
     public void addMember(HealthcareServiceable name){
         members.add(name);
@@ -24,8 +24,7 @@ public class HealthcareWorkerTeam implements HealthcareServiceable{
 
     @Override
     public void service() {
-        ArrayList<Object> workers = new ArrayList<Object>();
-        for (int i = 0; i < members.size(); i++)showService((HealthcareServiceable) members.get(i));
+        for (int i = 0; i < members.size(); i++)showService(members.get(i));
     }
 
     @Override
