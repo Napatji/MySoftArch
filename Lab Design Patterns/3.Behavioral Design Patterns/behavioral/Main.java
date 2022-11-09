@@ -37,6 +37,7 @@ public class Main {
         people.addMember(ted);
 
         PrintStream out = System.out;
+        people.setSortStrategy(new NameSortStrategy());
         people.print(out);
         people.setSortStrategy(new AgeSortStrategy());
         people.print(out);
